@@ -1,0 +1,36 @@
+<h1>{{ titulo }}</h1>
+
+<button (click)="onShowHide(true)" [class.showingData]="mostrar_datos === true">Mostrar </button>
+<button (click)="onShowHide(false)" [class.showingData]="mostrar_datos === false">Ocultar </button>
+	<ul *ngIf="mostrar_datos === true">
+		<li>Pelicula: 
+		<strong>{{pelicula.pelicula}}</strong>
+		</li>
+		<li>Director: 
+		<strong>{{pelicula.director}}</strong>
+		</li>
+		<li>Año: 
+		<strong>{{pelicula.year}}</strong>
+		</li>
+    </ul>
+
+
+    <!--<h1>{{titulo}}</h1>
+ 
+<h3>Primera pelicula harcodeada:</h3>
+<p>Pelicula: {{pelicula[0]["pelicula"]}}</p>
+<p>Director: {{pelicula[0]["director"]}}</p>
+<p>Año: {{pelicula[0]["anio"]}}</p>
+ 
+<h3>Listado de peliculas:</h3>
+<ul>
+    <li *ngFor="#peli of peliculas">
+      <p>Titulo: {{pelicula.pelicula}}</p>
+      <p>Director: {{pelicula.director}}</p>
+      <p>Año: {{pelicula.year}}</p>
+    </li>
+</ul>
+ 
+<hr>
+&copy; Copyright 
+<a href="http://victorroblesweb.es">http://victorroblesweb.es</a>-->

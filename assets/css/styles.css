@@ -1,0 +1,8 @@
+h1{
+	font-family: arial,helvetica;
+	font-size: 40;
+	text-decoration: underline;
+}
+.showingData{  /*Ocultar boton al presionarlo*/
+	display: none;
+}
