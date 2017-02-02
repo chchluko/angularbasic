@@ -24,14 +24,24 @@ System.register(['angular2/core', './model/pelicula'], function(exports_1, conte
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
             AppComponent = (function () {
                 function AppComponent() {
-                    this.titulo = "Peliculas";
-                    this.pelicula = pelicula_1.Pelicula;
+                    this.titulo = "Catalogo";
                     this.mostrar_datos = false;
-                    this.pelicula = new pelicula_1.Pelicula(1, "carta", "prueba", 2016);
+                    this.pelicula = new pelicula_1.Pelicula(2, 'La verdad duele', 'Will Smith', 2015);
+                    this.peliculas = [
+                        new pelicula_1.Pelicula(1, 'Batman v. Superman', "Zack Snider", 2016),
+                        new pelicula_1.Pelicula(2, 'La verdad duele', 'Will Smith', 2015),
+                        new pelicula_1.Pelicula(3, 'Una historia real', 'Desconocido', 2014),
+                    ];
                     this.debug();
                 }
-                AppComponent.prototype.debug = function () {
-                    console.log(this.pelicula);
+                AppComponent.prototype.debug = function (titulo) {
+                    if (titulo === void 0) { titulo = null; }
+                    if (titulo != null) {
+                        console.log(this.pelicula.pelicula);
+                    }
+                    else {
+                        console.log(this.pelicula);
+                    }
                 };
                 AppComponent.prototype.onShowHide = function (value) {
                     this.mostrar_datos = value;
@@ -45,7 +55,7 @@ System.register(['angular2/core', './model/pelicula'], function(exports_1, conte
                                     <li>Pelicula: <strong>{{pelicula}}</strong></li>
                                     <li>Director: <strong>{{director}}</strong></li>
                                     <li>Año: <strong>{{year}}</strong></li>
-                                    </ul>` */ //plantilla html dentro del componente
+                                    </ul>` */ // html dentro del componente
                         templateUrl: "app/view/peliculas.html",
                         styleUrls: ["../assets/css/styles.css"]
                     }), 

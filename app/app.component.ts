@@ -12,38 +12,41 @@ import {Pelicula} from './model/pelicula';
 				<li>Pelicula: <strong>{{pelicula}}</strong></li>
 				<li>Director: <strong>{{director}}</strong></li>
 				<li>Año: <strong>{{year}}</strong></li>
-    			</ul>` */  //plantilla html dentro del componente
+    			</ul>` */  // html dentro del componente
 
-    templateUrl: "app/view/peliculas.html", //desde una plantilla html remota
+    templateUrl: "app/view/peliculas.html", //plantilla desde una plantilla html remota
     styleUrls: ["../assets/css/styles.css"]
 })
  
 // Clase del componente donde iran los datos y funcionalidades
-export class AppComponent { 
-	public titulo:string = "Peliculas";
-	public pelicula = Pelicula;
+export class AppComponent{ 
+	public titulo:string = "Catalogo";
+	public pelicula:Pelicula;
 	public mostrar_datos:boolean;
+	public peliculas;
 
 	constructor(){
 		this.mostrar_datos=false;
-		this.pelicula = new Pelicula(1, "carta", "prueba", 2016);
+		this.pelicula = new Pelicula(2, 'La verdad duele', 'Will Smith', 2015);
+		this.peliculas = [
+					    new Pelicula(1, 'Batman v. Superman', "Zack Snider", 2016),
+					    new Pelicula(2, 'La verdad duele', 'Will Smith', 2015),
+					    new Pelicula(3, 'Una historia real', 'Desconocido', 2014),
+						];
 		this.debug();
 		}
 
-	debug(){
-		console.log(this.pelicula);
+	debug(titulo=null){
+		if(titulo != null) {
+			console.log(this.pelicula.pelicula);
+		}else{
+			console.log(this.pelicula);
+		}
 	}
 
 	onShowHide(value){
 		this.mostrar_datos=value;
 	}
-
-	//public pelicula = new Pelicula(3, 'El Aura', 'Fabián Bielinsky', 2005);
- /*peliculas = [
-    new Pelicula(1, 'Batman v. Superman', "Zack Snider", 2016),
-    new Pelicula(2, 'La verdad duele', 'Will Smith', 2015),
-    new Pelicula(3, 'Una historia real', 'Desconocido', 2014),
-  ];*/
 
 
 }
