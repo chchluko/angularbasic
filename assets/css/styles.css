@@ -6,3 +6,13 @@ h1{
 .showingData{  /*Ocultar boton al presionarlo*/
 	display: none;
 }
+.pelicula-title{
+	cursor: pointer;
+}
+.pelicula-title:hover{
+	text-decoration: underline;
+}
+.clicked{
+	font-size: 20px;
+	color: green;
+}

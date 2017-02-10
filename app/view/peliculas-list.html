@@ -1,0 +1,34 @@
+<p>Favorita</p>
+
+<button (click)="onShowHide(true)" [class.showingData]="mostrar_datos === true">Mostrar </button>
+<button (click)="onShowHide(false)" [class.showingData]="mostrar_datos === false">Ocultar </button>
+	<ul *ngIf="mostrar_datos === true">
+		<li>Pelicula: 
+		<strong>{{pelicula.pelicula}}</strong>
+		</li>
+		<li>Director: 
+		<strong>{{pelicula.director}}</strong>
+		</li>
+		<li>Año: 
+		<strong>{{pelicula.year}}</strong>
+		</li>
+    </ul>
+
+<p>
+	Cambiar titulo
+	<input type="text" (keypress)="debug(true)" [(ngModel)]="pelicula.pelicula"/>
+</p>
+<p>Listado</p>
+<ul>
+	<ul *ngFor="#pelicula of peliculas" style="margin-bottom: 20px">  <!-- iteracion  -->
+		<li (click)="onCambiarPelicula(pelicula)" class="pelicula-title" [class.clicked]="peliculaElegida.id === pelicula.id">Pelicula: 
+		<strong>{{pelicula.pelicula}}</strong>
+		</li>
+		<li *ngIf="pelicula.director">Director: 
+		<strong>{{pelicula.director}}</strong>
+		</li>
+		<li *ngIf="pelicula.year">Año: 
+		<strong>{{pelicula.year}}</strong>
+		</li>
+    </ul>
+</ul>

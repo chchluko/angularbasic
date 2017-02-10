@@ -1,8 +1,9 @@
 // Importar el núcleo de Angular
 import {Component} from 'angular2/core';
-import {Pelicula} from './model/pelicula';
+//import {Pelicula} from './model/pelicula';
+import {PeliculasListComponent} from './components/peliculas-list.component';
+import {FooterComponent} from './components/footer.component';
 
- 
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component({
     selector: 'my-app',   //donde se carga el componente en que etiqueta
@@ -13,40 +14,14 @@ import {Pelicula} from './model/pelicula';
 				<li>Director: <strong>{{director}}</strong></li>
 				<li>Año: <strong>{{year}}</strong></li>
     			</ul>` */  // html dentro del componente
-
-    templateUrl: "app/view/peliculas.html", //plantilla desde una plantilla html remota
-    styleUrls: ["../assets/css/styles.css"]
+    directives: [PeliculasListComponent, FooterComponent],
+    templateUrl: "app/view/peliculas.html" //plantilla desde una plantilla html remota
+    //styleUrls: ["../assets/css/styles.css"]
 })
  
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent{ 
 	public titulo:string = "Catalogo";
-	public pelicula:Pelicula;
-	public mostrar_datos:boolean;
-	public peliculas;
-
-	constructor(){
-		this.mostrar_datos=false;
-		this.pelicula = new Pelicula(2, 'La verdad duele', 'Will Smith', 2015);
-		this.peliculas = [
-					    new Pelicula(1, 'Batman v. Superman', "Zack Snider", 2016),
-					    new Pelicula(2, 'La verdad duele', 'Will Smith', 2015),
-					    new Pelicula(3, 'Una historia real', 'Desconocido', 2014),
-						];
-		this.debug();
-		}
-
-	debug(titulo=null){
-		if(titulo != null) {
-			console.log(this.pelicula.pelicula);
-		}else{
-			console.log(this.pelicula);
-		}
-	}
-
-	onShowHide(value){
-		this.mostrar_datos=value;
-	}
-
+	
 
 }

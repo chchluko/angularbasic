@@ -1,4 +1,4 @@
-System.register(['angular2/core', './model/pelicula'], function(exports_1, context_1) {
+System.register(['angular2/core', './components/peliculas-list.component', './components/footer.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,42 +10,25 @@ System.register(['angular2/core', './model/pelicula'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, pelicula_1;
+    var core_1, peliculas_list_component_1, footer_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (pelicula_1_1) {
-                pelicula_1 = pelicula_1_1;
+            function (peliculas_list_component_1_1) {
+                peliculas_list_component_1 = peliculas_list_component_1_1;
+            },
+            function (footer_component_1_1) {
+                footer_component_1 = footer_component_1_1;
             }],
         execute: function() {
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
             AppComponent = (function () {
                 function AppComponent() {
                     this.titulo = "Catalogo";
-                    this.mostrar_datos = false;
-                    this.pelicula = new pelicula_1.Pelicula(2, 'La verdad duele', 'Will Smith', 2015);
-                    this.peliculas = [
-                        new pelicula_1.Pelicula(1, 'Batman v. Superman', "Zack Snider", 2016),
-                        new pelicula_1.Pelicula(2, 'La verdad duele', 'Will Smith', 2015),
-                        new pelicula_1.Pelicula(3, 'Una historia real', 'Desconocido', 2014),
-                    ];
-                    this.debug();
                 }
-                AppComponent.prototype.debug = function (titulo) {
-                    if (titulo === void 0) { titulo = null; }
-                    if (titulo != null) {
-                        console.log(this.pelicula.pelicula);
-                    }
-                    else {
-                        console.log(this.pelicula);
-                    }
-                };
-                AppComponent.prototype.onShowHide = function (value) {
-                    this.mostrar_datos = value;
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
@@ -56,8 +39,8 @@ System.register(['angular2/core', './model/pelicula'], function(exports_1, conte
                                     <li>Director: <strong>{{director}}</strong></li>
                                     <li>Año: <strong>{{year}}</strong></li>
                                     </ul>` */ // html dentro del componente
-                        templateUrl: "app/view/peliculas.html",
-                        styleUrls: ["../assets/css/styles.css"]
+                        directives: [peliculas_list_component_1.PeliculasListComponent, footer_component_1.FooterComponent],
+                        templateUrl: "app/view/peliculas.html" //plantilla desde una plantilla html remota
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
